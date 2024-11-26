@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fees Statement - Nyabigena Boys</title>
+    <style>
+        /* Styling as before */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f1f8e9;
+            color: #2d3436;
+        }
+        header {
+            background-color: #33691e;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        nav {
+            margin-top: 15px;
+            text-align: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid #33691e;
+        }
+        nav a:hover {
+            color: #9ccc65;
+            background-color: #33691e;
+        }
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            font-size: 1.8em;
+            color: #33691e;
+            margin-bottom: 10px;
+        }
+        section p {
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        .fees-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        .fees-table th, .fees-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .fees-table th {
+            background-color: #33691e;
+            color: white;
+        }
+        .summary-table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+        }
+        .summary-table th, .summary-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .summary-table th {
+            background-color: #33691e;
+            color: white;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #33691e;
+            color: white;
+            margin-top: 40px;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .subtabs {
+                display: block;
+                text-align: center;
+            }
+
+            .subtab-link {
+                display: block;
+                margin-bottom: 10px;
+                width: 60%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        /* Search bar styling */
+        .search-bar {
+            margin: 20px auto;
+            text-align: center;
+        }
+        .search-bar input[type="text"] {
+            padding: 10px;
+            font-size: 1em;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #33691e;
+        }
+        .search-bar button {
+            padding: 10px 15px;
+            font-size: 1em;
+            background-color: #33691e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background-color: #9ccc65;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nyabigena Boys</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('admissions') }}">Admissions</a>
+            <a href="{{ url_for('fees') }}">Fees</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Search bar -->
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search student by name" />
+            <button onclick="searchStudent()">Search</button>
+        </div>
+
+        <!-- Fees Statement Content -->
+        <section id="fees-statement">
+            <h2>Fees Statement</h2>
+            <p>This statement shows the fee breakdown for <strong>{{ student_name }}</strong>, Form: <strong>{{ student_form }}</strong></p>
+
+            <!-- Fees Breakdown Table -->
+            <table class="fees-table">
+                <thead>
+                    <tr>
+                        <th>Fees Item</th>
+                        <th>Term 1 (KSH)</th>
+                        <th>Term 2 (KSH)</th>
+                        <th>Term 3 (KSH)</th>
+                        <th>Total (KSH)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tuition</td>
+                        <td>{{ tuition_term1 }}</td>
+                        <td>{{ tuition_term2 }}</td>
+                        <td>{{ tuition_term3 }}</td>
+                        <td>{{ total_tuition }}</td>
+                    </tr>
+                    <tr>
+                        <td>Lunch</td>
+                        <td>{{ lunch_term1 }}</td>
+                        <td>{{ lunch_term2 }}</td>
+                        <td>{{ lunch_term3 }}</td>
+                        <td>{{ total_lunch }}</td>
+                    </tr>
+                    <tr>
+                        <td>Transport</td>
+                        <td>{{ transport_term1 }}</td>
+                        <td>{{ transport_term2 }}</td>
+                        <td>{{ transport_term3 }}</td>
+                        <td>{{ total_transport }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Summary Table -->
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Details</th>
+                        <th>Amount (KSH)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Total Fees Due</td>
+                        <td>{{ total_due }}</td>
+                    </tr>
+                    <tr>
+                        <td>Amount Paid</td>
+                        <td>{{ amount_paid }}</td>
+                    </tr>
+                    <tr>
+                        <td>Outstanding Balance</td>
+                        <td>{{ outstanding_balance }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Nyabigena Boys</p>
+    </footer>
+
+    <script>
+        function searchStudent() {
+            const searchValue = document.getElementById("search").value;
+            window.location.href = `/fees_statement/${searchValue}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!-- website/templates/about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Nyabigena - About Us</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #d5f5e3, #ffffff);
+            color: #2d3436;
+        }
+        header {
+            background-color: #145a32;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        nav {
+            margin-top: 15px;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #aed581;
+        }
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            font-size: 1.8em;
+            color: #145a32;
+            margin-bottom: 10px;
+        }
+        section p {
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #145a32;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Great Nyabigena</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('admissions') }}">Admissions</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>The Remarkable History of Nyabigena</h2>
+            <p>Is there a school in Kisii County as deeply rooted in both excellence and history as Nyabigena? Established in the early 1980s, Nyabigena Boys High School began as a small institution, brimming with hope and ambition. Over the years, it grew not just in size but in reputation, earning the respect of educators and students alike for its unwavering commitment to academic and moral excellence.</p>
+        </section>
+        <section>
+            <h2>A Community of Staff and Students</h2>
+            <p>What makes Nyabigena so unique? Could it be the devoted teachers who pour their hearts into shaping tomorrow’s leaders? Or perhaps the disciplined and talented students who bring pride to the school with every competition, debate, and examination? This dynamic duo of staff and students is the lifeblood of Nyabigena's greatness.</p>
+        </section>
+        <section>
+            <h2>Performance Beyond Comparison</h2>
+            <p>Is it any surprise that Nyabigena Boys ranks among the best-performing schools in Kisii County? With a relentless drive for success, this institution has consistently produced top results in both national examinations and co-curricular activities. From academic champions to sports stars, Nyabigena shines in every field.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Nyabigena Boys High School. Excellence in Discipline and Education.</p>
+    </footer>
+</body>
+</html>

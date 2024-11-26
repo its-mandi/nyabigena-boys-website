@@ -1,0 +1,108 @@
+<!-- website/templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyabigena Boys - Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('{{ url_for('static', filename='house3.jpg') }}') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        header {
+            background-color: rgba(20, 90, 50, 0.8); /* Matching color to other pages */
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            text-transform: uppercase;
+            color: greenyellow;
+        }
+        header p {
+            font-size: 1.2em;
+            margin: 10px 0 0;
+            color: #f8f9f9;
+        }
+        nav {
+            margin-top: 20px;
+            text-align: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: #f4d03f;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #aed581;
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 40px;
+        }
+        section {
+            background-color: rgba(20, 90, 50, 0.8); /* Matching color to other pages */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px;
+            flex: 1 1 300px;
+            max-width: 400px;
+        }
+        section h2 {
+            font-size: 1.5em;
+            color: gold;
+        }
+        section p {
+            font-size: 1em;
+            color: #f8f9f9;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Nyabigena Boys</h1>
+        <p>Excellence in Education and Discipline</p>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('admissions') }}">Admissions</a>
+            <a href="{{ url_for('fees') }}">Fees</a>
+            <a href="{{ url_for('results') }}">Results</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>History</h2>
+            <p>Established in 1980, Nyabigena Boys has been a hub of academic excellence in Kisii County.</p>
+        </section>
+        <section>
+            <h2>Staff</h2>
+            <p>Our staff comprises experienced teachers dedicated to nurturing young minds for a brighter future.</p>
+        </section>
+        <section>
+            <h2>Students</h2>
+            <p>Our students uphold discipline and strive for success in academics, sports, and community service.</p>
+        </section>
+        <section>
+            <h2>School</h2>
+            <p>Our school is equipped with modern facilities, providing a conducive environment for learning.</p>
+        </section>
+        <section>
+            <h2>Performance</h2>
+            <p>Nyabigena Boys has consistently produced top results in national examinations and co-curricular activities.</p>
+        </section>
+    </main>
+</body>
+</html>

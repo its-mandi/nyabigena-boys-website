@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - Nyabigena Boys</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Light blue background */
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #1a3c7d; /* Deep blue header */
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            color: white;
+            margin: 0;
+        }
+
+        /* Navigation Bar Styling */
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #f39c12; /* Hover effect with gold color */
+        }
+
+        /* Main Content Styling */
+        main {
+            padding: 30px 10%;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #1a3c7d;
+            text-align: center;
+        }
+
+        /* Search Bar Styling */
+        .search-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .search-bar {
+            padding: 10px;
+            width: 45%;
+            font-size: 16px;
+            border: 1px solid #1a3c7d;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        /* Tabs for Form Selection */
+        .form-tabs {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .tab-link {
+            font-size: 18px;
+            color: #1a3c7d;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 20px;
+            border: 1px solid #1a3c7d;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        .tab-link:hover {
+            background-color: #1a3c7d;
+            color: white;
+        }
+
+        /* Results and Stream Styling */
+        .stream-heading {
+            font-size: 20px;
+            color: #1a3c7d;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .stream-title {
+            font-size: 18px;
+            color: #1a3c7d;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .streams {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .stream {
+            width: 45%;
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+
+        table th {
+            background-color: #1a3c7d;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .form-tabs {
+                display: block;
+                text-align: center;
+            }
+
+            .tab-link {
+                display: block;
+                margin-bottom: 10px;
+                width: 60%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .streams {
+                flex-direction: column;
+            }
+
+            .stream {
+                width: 90%;
+                margin: 10px auto;
+            }
+
+            .search-bar {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nyabigena Boys</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('admissions') }}">Admissions</a>
+            <a href="{{ url_for('fees') }}">Fees</a>
+            <a href="{{ url_for('results') }}">Results</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Class Results</h2>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search by name or grade..." id="search-input">
+        </div>
+
+        <!-- Tabs for Form Selection -->
+        <div class="form-tabs">
+            <a href="{{ url_for('results', form='form1') }}" class="tab-link">Form 1</a>
+            <a href="{{ url_for('results', form='form2') }}" class="tab-link">Form 2</a>
+            <a href="{{ url_for('results', form='form3') }}" class="tab-link">Form 3</a>
+            <a href="{{ url_for('results', form='form4') }}" class="tab-link">Form 4</a>
+        </div>
+
+        <!-- Display selected Form's streams and students -->
+        <h3 class="stream-heading">Results for {{ form.upper() }}</h3>
+        <div class="streams">
+            {% for stream, students_list in streams.items() %}
+            <div class="stream">
+                <h4 class="stream-title">{{ stream }} Stream</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody id="{{ stream|replace(' ', '-') }}-students">
+                        {% for student in students_list %}
+                        <tr>
+                            <td>{{ student.name }}</td>
+                            <td>{{ student.grade }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <script>
+        // Search functionality for both name and grade
+        document.getElementById('search-input').addEventListener('input', function() {
+            let searchQuery = this.value.toLowerCase();
+            document.querySelectorAll('table tbody').forEach(function(tbody) {
+                let rows = tbody.querySelectorAll('tr');
+                rows.forEach(function(row) {
+                    let studentName = row.querySelector('td:nth-child(1)').textContent.toLowerCase();
+                    let grade = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+                    if (studentName.includes(searchQuery) || grade.includes(searchQuery)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

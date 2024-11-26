@@ -1,0 +1,127 @@
+<!-- website/templates/admissions.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyabigena Boys - Admissions</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #d5f5e3, #ffffff);
+            color: #2d3436;
+        }
+        header {
+            background-color: #145a32;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        nav {
+            margin-top: 15px;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #aed581;
+        }
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            font-size: 1.8em;
+            color: #145a32;
+            margin-bottom: 10px;
+        }
+        section p {
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #145a32;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admissions</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('admissions') }}">Admissions</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Welcome to Nyabigena Boys High School Admissions</h2>
+            <p>At Nyabigena Boys High School, we are committed to providing quality education that shapes young minds into leaders of tomorrow. Our admissions process is designed to be transparent, fair, and aimed at selecting students who will thrive academically and socially in our school community.</p>
+        </section>
+        <section>
+            <h2>Eligibility Criteria</h2>
+            <p>To be eligible for admission, applicants must meet the following criteria:</p>
+            <ul>
+                <li>Must have completed primary school education.</li>
+                <li>Must have attained the required marks in the Kenya Certificate of Primary Education (KCPE).</li>
+                <li>Must demonstrate good moral conduct and discipline.</li>
+                <li>Must provide a recommendation from their primary school head teacher.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Admission Process</h2>
+            <p>Our admission process consists of the following steps:</p>
+            <ul>
+                <li><strong>Step 1:</strong> Submit an online application form through our official website or at the school office.</li>
+                <li><strong>Step 2:</strong> Attend the admission interview and provide necessary documentation.</li>
+                <li><strong>Step 3:</strong> Receive confirmation of admission after the selection process.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Required Documents</h2>
+            <p>The following documents are required for the admission process:</p>
+            <ul>
+                <li>KCPE Result Slip (original and photocopy).</li>
+                <li>Birth Certificate (original and photocopy).</li>
+                <li>Recommendation Letter from Primary School Head Teacher.</li>
+                <li>Recent Passport-size Photographs.</li>
+                <li>Medical Report Form (provided by the school).</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Important Dates</h2>
+            <p>Here are the important dates for this year's admission:</p>
+            <ul>
+                <li><strong>Application Period:</strong> January 1 - February 28</li>
+                <li><strong>Interview Dates:</strong> March 10 - March 15</li>
+                <li><strong>Final Admission Confirmation:</strong> March 20</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Nyabigena Boys High School. Excellence in Discipline and Education.</p>
+    </footer>
+</body>
+</html>

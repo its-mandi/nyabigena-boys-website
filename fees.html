@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fees Structure - Nyabigena Boys</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f1f8e9;
+            color: #2d3436;
+        }
+        header {
+            background-color: #33691e;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        nav {
+            margin-top: 15px;
+            text-align: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid #33691e;
+        }
+        nav a:hover {
+            color: #9ccc65;
+            background-color: #33691e;
+        }
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            font-size: 1.8em;
+            color: #33691e;
+            margin-bottom: 10px;
+        }
+        section p {
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #33691e;
+            color: white;
+            margin-top: 40px;
+        }
+
+        /* Tabs for fees structure and fees statement */
+        .subtabs {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .subtab-link {
+            font-size: 18px;
+            color: #33691e;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 20px;
+            border: 1px solid #33691e;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        .subtab-link:hover {
+            background-color: #33691e;
+            color: white;
+        }
+
+        /* Fees Structure Tables */
+        .fees-structure-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        .fees-structure-table th, .fees-structure-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .fees-structure-table th {
+            background-color: #33691e;
+            color: white;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .subtabs {
+                display: block;
+                text-align: center;
+            }
+
+            .subtab-link {
+                display: block;
+                margin-bottom: 10px;
+                width: 60%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nyabigena Boys</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('admissions') }}">Admissions</a>
+            <a href="{{ url_for('fees') }}">Fees</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Fees Structure and Fees Statement Subtabs -->
+        <div class="subtabs">
+            <a href="{{ url_for('fees_structure') }}" class="subtab-link">Fees Structure</a>
+            <a href="{{ url_for('fees_statement') }}" class="subtab-link">Fees Statement</a>
+        </div>
+
+        <!-- Fees Structure Content -->
+        <section>
+            <h2>Fees Structure for 2024</h2>
+            <p>Below is the fees structure for students in each form:</p>
+
+            <!-- Fees Structure Table -->
+            <h3>Form 1</h3>
+            <table class="fees-structure-table">
+                <thead>
+                    <tr>
+                        <th>Fees Item</th>
+                        <th>Term 1 (KSH)</th>
+                        <th>Term 2 (KSH)</th>
+                        <th>Term 3 (KSH)</th>
+                        <th>Total (KSH)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tuition</td>
+                        <td>22,000</td>
+                        <td>19,000</td>
+                        <td>19,000</td>
+                        <td>60,000</td>
+                    </tr>
+                    <tr>
+                        <td>Lunch</td>
+                        <td>5,000</td>
+                        <td>5,000</td>
+                        <td>5,000</td>
+                        <td>15,000</td>
+                    </tr>
+                    <tr>
+                        <td>Transport</td>
+                        <td>20,000</td>
+                        <td>20,000</td>
+                        <td>20,000</td>
+                        <td>60,000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Form 2</h3>
+            <table class="fees-structure-table">
+                <thead>
+                    <tr>
+                        <th>Fees Item</th>
+                        <th>Term 1 (KSH)</th>
+                        <th>Term 2 (KSH)</th>
+                        <th>Term 3 (KSH)</th>
+                        <th>Total (KSH)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tuition</td>
+                        <td>26,500</td>
+                        <td>26,500</td>
+                        <td>26,000</td>
+                        <td>79,000</td>
+                    </tr>
+                    <tr>
+                        <td>Lunch</td>
+                        <td>5,000</td>
+                        <td>5,000</td>
+                        <td>5,000</td>
+                        <td>15,000</td>
+                    </tr>
+                    <tr>
+                        <td>Transport</td>
+                        <td>20,000</td>
+                        <td>20,000</td>
+                        <td>20,000</td>
+                        <td>60,000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Form 3</h3>
+            <table class="fees-structure-table">
+                <thead>
+                    <tr>
+                        <th>Fees Item</th>
+                        <th>Term 1 (KSH)</th>
+                        <th>Term 2 (KSH)</th>
+                        <th>Term 3 (KSH)</th>
+                        <th>Total (KSH)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tuition</td>
+                        <td>28,000</td>
+                        <td>28,000</td>
+                        <td>29,000</td>
+                        <td>85,000</td>
+                    </tr>
+                    <tr>
+                        <td>Lunch</td>
+                        <td>5,000</td>
+                        <td>5,000</td>
+                        <td>5,000</td>
+                        <td>15,000</td>
+                    </tr>
+                    <tr>
+                        <td>Transport</td>
+                        <td>20,000</td>
+                        <td>20,000</td>
+                        <td>20,000</td>
+                        <td>60,000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Form 4</h3>
+            <table class="fees-structure-table">
+                <thead>
+                    <tr>
+                        <th>Fees Item</th>
+                        <th>Term 1 (KSH)</th>
+                        <th>Term 2 (KSH)</th>
+                        <th>Term 3 (KSH)</th>
+                        <th>Total (KSH)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tuition</td>
+                        <td>30,000</td>
+                        <td>30,000</td>
+                        <td>30,000</td>
+                        <td>90,000</td>
+                    </tr>
+                    <tr>
+                        <td>Lunch</td>
+                        <td>5,000</td>
+                        <td>5,000</td>
+                        <td>5,000</td>
+                        <td>15,000</td>
+                    </tr>
+                    <tr>
+                        <td>Transport</td>
+                        <td>20,000</td>
+                        <td>20,000</td>
+                        <td>20,000</td>
+                        <td>60,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Nyabigena Boys</p>
+    </footer>
+</body>
+</html>

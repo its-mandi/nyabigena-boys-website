@@ -1,0 +1,151 @@
+<!-- website/templates/contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyabigena Boys - Contact Us</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #d5f5e3, #ffffff);
+            color: #2d3436;
+        }
+        header {
+            background-color: #145a32;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        nav {
+            margin-top: 15px;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #aed581;
+        }
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            font-size: 1.8em;
+            color: #145a32;
+            margin-bottom: 10px;
+        }
+        section p {
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #145a32;
+            color: white;
+            margin-top: 40px;
+        }
+        .contact-methods a {
+            text-decoration: none;
+            color: #145a32;
+            font-size: 1.2em;
+            margin: 0 10px;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+        .contact-methods a:hover {
+            color: #aed581;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background-color: #145a32;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #aed581;
+        }
+        .map {
+            height: 400px;
+            width: 100%;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('admissions') }}">Admissions</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Get In Touch</h2>
+            <p>If you have any questions or need assistance, feel free to reach out to us via the following communication channels:</p>
+            <div class="contact-methods">
+                <a href="https://wa.me/254741171252" target="_blank">WhatsApp</a>
+                <a href="https://www.facebook.com/NyabigenaBoysHS" target="_blank">Facebook</a>
+                <a href="tel:+254741171252">Phone Call</a>
+                <a href="https://www.instagram.com/NyabigenaBoysHS" target="_blank">Instagram</a>
+            </div>
+        </section>
+        <section>
+            <h2>Send Us a Message</h2>
+            <p>Please fill out the form below, and we'll get back to you as soon as possible:</p>
+            <form class="contact-form" action="#" method="POST">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="6" placeholder="Enter your message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+        <section>
+            <h2>Our Location</h2>
+            <p>Find us on the map below:</p>
+            <!-- Embed Google Maps -->
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.970385131348!2d34.7639686!3d-0.706398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1843038001a8d0ef%3A0x60e2d69d798e42cc!2sNyabigena%20Boys%20High%20School!5e0!3m2!1sen!2ske!4v1676428897553!5m2!1sen!2ske"
+                        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Nyabigena Boys High School. Excellence in Discipline and Education.</p>
+    </footer>
+</body>
+</html>
